@@ -1,0 +1,25 @@
+{
+  "name": "js-timeline-slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshOY/js-timeline-slider.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoshOY/js-timeline-slider/issues"
+  },
+  "homepage": "https://github.com/JoshOY/js-timeline-slider#readme",
+  "dependencies": {
+    "jquery": "^2.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
