@@ -1,0 +1,25 @@
+html {
+  display: block;
+}
+body {
+  margin: 0;
+  padding: 25px;
+}
+div[timeline] {
+  height: 6px;
+  background: #efefef;
+}
+div[timeline] ul {
+  list-style: none;
+  height: 35px;
+}
+div[timeline] ul li {
+  margin-top: -15px;
+  display: inline-block;
+  background: #00f;
+  cursor: pointer;
+  width: 16px;
+  height: 19px;
+}
+
+/*# sourceMappingURL=../maps/timeline.css.map */

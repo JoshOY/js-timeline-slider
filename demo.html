@@ -4,9 +4,26 @@
   <head>
     <meta charset="utf-8" />
     <meta lang="cn-zh" /> 
+    <link rel="stylesheet" href="dist/css/timeline.css">
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
   </head>
 
   <body>
-    
+    <h1>js-timeline-slider</h1>
+    <div id="timeline-demo" timeline timeline-model="">
+      <ul>
+        <li year="2015" month="10"></li>
+        <li year="2015" month="4"></li>
+        <li year="2014" month="10"></li>
+        <li year="2014" month="1"></li>
+      </ul>
+    </div>
+
+    <script src="dist/js/timeline.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        createTimeline('#timeline-demo');
+      });
+    </script>
   </body>
 </html>
