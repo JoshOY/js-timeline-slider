@@ -12,6 +12,7 @@ div[timeline] {
 div[timeline] ul {
   list-style: none;
   height: 35px;
+  position: relative;
 }
 div[timeline] ul li {
   margin-top: -15px;
@@ -20,6 +21,7 @@ div[timeline] ul li {
   cursor: pointer;
   width: 16px;
   height: 19px;
+  position: absolute;
 }
 
 /*# sourceMappingURL=../maps/timeline.css.map */
