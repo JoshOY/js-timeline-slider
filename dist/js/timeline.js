@@ -97,7 +97,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var month = parseInt($(dom).attr('month'));
       var offset = (tl.padding / 2 + tl.monthDistance * (tl.firstMonth - (12 * year + month))).toString() + 'px';
       $(dom).css('left', offset);
-      $(dom).text(year + '.' + month);
+      var text = year + '.' + month;
+      $(dom).append('<span class="time">' + year + '.' + month + '</span>');
     });
   };
 })();
