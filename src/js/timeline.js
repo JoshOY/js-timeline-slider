@@ -58,8 +58,6 @@
   window.Timenode = Timenode;
   window.Timeline = Timeline;
 
-  // window.demoTimeline = new Timeline();
-
   window.createTimeline = (selector, width=760, padding=140) => {
 
     var tl = new Timeline([], width, padding);
@@ -80,17 +78,14 @@
       (idx, dom) => {
         let year = parseInt($(dom).attr('year'));
         let month = parseInt($(dom).attr('month'));
+        let position = $(dom).attr('data-position') || '';
         let offset = (tl.padding / 2 + tl.monthDistance * (tl.firstMonth - (12 * year + month) )).toString() + 'px';
         $(dom).css('left', offset);
-        var text = year + '.' + month;
-        $(dom).append('<span class="time">' + year + '.' + month + '</span>')
+        var text = year + '.' + ((month < 10) ? ('0' + month) : month);
+        $(dom).append('<span class="time">' + text + '</span>' + '<br /><span class="position">' + position + '</span>')
       }
     )
-
 
   };
 
 })();
-
-
-createTimeline('#timeline-demo');

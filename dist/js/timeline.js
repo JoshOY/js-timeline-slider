@@ -73,8 +73,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   window.Timenode = Timenode;
   window.Timeline = Timeline;
 
-  // window.demoTimeline = new Timeline();
-
   window.createTimeline = function (selector) {
     var width = arguments.length <= 1 || arguments[1] === undefined ? 760 : arguments[1];
     var padding = arguments.length <= 2 || arguments[2] === undefined ? 140 : arguments[2];
@@ -95,13 +93,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     $(selector + '> ul').children().map(function (idx, dom) {
       var year = parseInt($(dom).attr('year'));
       var month = parseInt($(dom).attr('month'));
+      var position = $(dom).attr('data-position') || '';
       var offset = (tl.padding / 2 + tl.monthDistance * (tl.firstMonth - (12 * year + month))).toString() + 'px';
       $(dom).css('left', offset);
-      var text = year + '.' + month;
-      $(dom).append('<span class="time">' + year + '.' + month + '</span>');
+      var text = year + '.' + (month < 10 ? '0' + month : month);
+      $(dom).append('<span class="time">' + text + '</span>' + '<br /><span class="position">' + position + '</span>');
     });
   };
 })();
-
-createTimeline('#timeline-demo');
 //# sourceMappingURL=../maps/timeline.js.map
