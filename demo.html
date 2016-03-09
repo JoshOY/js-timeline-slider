@@ -20,6 +20,19 @@
         margin-top: 80px;
         width: 1000px;
       }
+
+      .bg-yellow {
+        background: yellow;
+      }
+      .bg-green {
+        background: green;
+      }
+      .bg-blue {
+        background: #0b97c4;
+      }
+      .bg-red {
+        background: #db175b;
+      }
     </style>
 
   </head>
@@ -30,10 +43,12 @@
 
 
     <div id="timeline-demo" timeline>
-      <div class="timeline-slide" timeline-order="1">This is timeline slider #1.</div>
-      <div class="timeline-slide" timeline-order="2">This is timeline slider #2.</div>
-      <div class="timeline-slide" timeline-order="3">This is timeline slider #3.</div>
-      <div class="timeline-slide" timeline-order="4">This is timeline slider #4.</div>
+      <div class="timeline-slider">
+        <div class="timeline-slider-page bg-yellow" timeline-order="1">This is timeline slider #1.</div><!--
+        --><div class="timeline-slider-page bg-green" timeline-order="2">This is timeline slider #2.</div><!--
+        --><div class="timeline-slider-page bg-blue" timeline-order="3">This is timeline slider #3.</div><!--
+        --><div class="timeline-slider-page bg-red" timeline-order="4">This is timeline slider #4.</div>
+      </div>
 
       <ul>
         <li year="2015" month="10" data-position="上海" target-slider="1"></li>

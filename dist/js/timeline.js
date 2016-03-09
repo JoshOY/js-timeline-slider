@@ -86,7 +86,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       var timenode = new Timenode(year, month);
       tl.addTimenode(timenode);
-      console.log(tl);
+      // console.log(tl);
       return null;
     });
 
@@ -98,6 +98,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       $(dom).css('left', offset);
       var text = year + '.' + (month < 10 ? '0' + month : month);
       $(dom).append('<span class="time">' + text + '</span>' + '<br /><span class="position">' + position + '</span>');
+    });
+
+    $(selector + '> ul').children().map(function (idx, dom) {
+      var sliderId = $(dom).attr('target-slider');
+      var targetDOM = $(selector + ' > .timeline-slider > [timeline-order="{0}"]'.replace('{0}', sliderId));
+      // console.log(targetDOM);
+
+      $(dom).click(function () {
+
+        var prevDOMs = $(targetDOM).prevAll();
+        var nextDOMs = $(targetDOM).nextAll();
+
+        $(targetDOM).map(function (idx, dom) {
+          if ($(dom).hasClass('slide-left')) {
+            $(dom).removeClass('slide-left');
+          }
+        });
+        $(prevDOMs).map(function (idx, dom) {
+          if (!$(dom).hasClass('slide-left')) {
+            $(dom).addClass('slide-left');
+          }
+        });
+        $(nextDOMs).map(function (idx, dom) {
+          if ($(dom).hasClass('slide-left')) {
+            $(dom).removeClass('slide-left');
+          }
+        });
+      });
     });
   };
 })();

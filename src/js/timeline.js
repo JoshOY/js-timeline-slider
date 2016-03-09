@@ -69,7 +69,7 @@
 
         var timenode = new Timenode(year, month);
         tl.addTimenode(timenode);
-        console.log(tl);
+        // console.log(tl);
         return null;
       }
     );
@@ -84,7 +84,31 @@
         var text = year + '.' + ((month < 10) ? ('0' + month) : month);
         $(dom).append('<span class="time">' + text + '</span>' + '<br /><span class="position">' + position + '</span>')
       }
-    )
+    );
+
+    $(selector + '> ul').children().map(
+      (idx, dom) => {
+        let sliderId = $(dom).attr('target-slider');
+        let targetDOM = $(selector + ' > .timeline-slider > [timeline-order="{0}"]'.replace('{0}', sliderId));
+        // console.log(targetDOM);
+
+        $(dom).click(() => {
+
+          let prevDOMs = $(targetDOM).prevAll();
+          let nextDOMs = $(targetDOM).nextAll();
+
+          $(targetDOM).map(
+            (idx, dom) => { if ($(dom).hasClass('slide-left')) { $(dom).removeClass('slide-left'); }
+          });
+          $(prevDOMs).map(
+            (idx, dom) => { if (!$(dom).hasClass('slide-left')) { $(dom).addClass('slide-left'); } }
+          );
+          $(nextDOMs).map(
+            (idx, dom) => { if ($(dom).hasClass('slide-left')) { $(dom).removeClass('slide-left'); } }
+          );
+        })
+      }
+    );
 
   };
 
