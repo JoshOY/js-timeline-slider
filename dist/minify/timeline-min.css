@@ -1,0 +1,80 @@
+html {
+  display: block;
+}
+body {
+  margin: 0;
+  padding: 25px;
+}
+div[timeline] ul {
+  list-style: none;
+  position: relative;
+  margin-top: 50px;
+  height: 6px;
+  background: #efefef;
+}
+div[timeline] ul li {
+  display: inline-block;
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  margin-top: -43px;
+  padding-top: 70px;
+  text-align: center;
+  background: url("../../resources/Drop_clip_art_grey.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transtition: ease-in 0.5s;
+}
+div[timeline] ul li:hover,
+div[timeline] ul li:active {
+  background: url("../../resources/Drop_clip_art_blue.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[timeline] ul li:hover .time,
+div[timeline] ul li:active .time,
+div[timeline] ul li:hover .position,
+div[timeline] ul li:active .position {
+  color: #008cff;
+}
+div[timeline] ul li .time {
+  margin-left: -50%;
+  font-size: 12px;
+}
+div[timeline] ul li .position {
+  display: inline-block;
+  margin-left: -50%;
+  width: 200%;
+  font-size: 12px;
+}
+div[timeline] ul .selected {
+  background: url("../../resources/Drop_clip_art_blue.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div[timeline] ul .selected .time,
+div[timeline] ul .selected .position {
+  color: #008cff;
+}
+.timeline-slider {
+  display: block;
+  position: relative;
+  width: 1000px;
+  height: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 50px;
+}
+.timeline-slider-page {
+  position: relative;
+  transition: all ease-in 0.5s;
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+}
+.slide-left {
+  margin-left: -100%;
+}
+
+/*# sourceMappingURL=../maps/timeline.css.map */

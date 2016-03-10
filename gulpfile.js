@@ -11,6 +11,7 @@
   var sourcemaps = require('gulp-sourcemaps');
   var babel = require('gulp-babel');
   var browserSync = require('browser-sync').create();
+  var minify = require('gulp-minify');
 
   // Compile stylus
   gulp.task('stylus', function() {
@@ -62,19 +63,21 @@
     
   });
 
-  gulp.task('uglify', function() {
-    gulp.src('dist/css/*.css')
-      .pipe(uglify())
-      .pipe(gulp.dest('dist/minify/css'));
-    gulp.src('dist/js/*.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('dist/minify/js'));
+  gulp.task('minify', function() {
+    gulp.src('./dist/css/*.css')
+      .pipe(uglify()).on('error', onError)
+      .pipe(rename({ suffix: '-min' }))
+      .pipe(gulp.dest('./dist/minify'));
+    gulp.src('./dist/js/*.js')
+      .pipe(uglify()).on('error', onError)
+      .pipe(rename({ suffix: '-min' }))
+      .pipe(gulp.dest('./dist/minify'));
   });
 
   
   gulp.task('build', ['stylus', 'babel', 'browser-sync']);
   gulp.task('default', ['build', 'watch']);
-  gulp.task('pack', ['build', 'uglify']);
+  gulp.task('pack', ['stylus', 'babel', 'minify']);
   gulp.task('watch', function() {
     var stream = gulp.watch(
       ['./*.html', './src/css/*.styl', './src/js/*.js'], 
