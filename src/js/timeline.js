@@ -106,7 +106,12 @@
           $(nextDOMs).map(
             (idx, dom) => { if ($(dom).hasClass('slide-left')) { $(dom).removeClass('slide-left'); } }
           );
-        })
+
+          let otherTimenodes = $(dom).siblings();
+          $(otherTimenodes).map( (idx, dom) => { if ($(dom).hasClass('selected')) { $(dom).removeClass('selected'); } } );
+          if (!$(dom).hasClass('selected')) { $(dom).addClass('selected'); }
+        });
+
       }
     );
 

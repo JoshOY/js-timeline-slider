@@ -125,6 +125,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $(dom).removeClass('slide-left');
           }
         });
+
+        var otherTimenodes = $(dom).siblings();
+        $(otherTimenodes).map(function (idx, dom) {
+          if ($(dom).hasClass('selected')) {
+            $(dom).removeClass('selected');
+          }
+        });
+        if (!$(dom).hasClass('selected')) {
+          $(dom).addClass('selected');
+        }
       });
     });
   };
